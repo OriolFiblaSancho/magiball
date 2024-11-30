@@ -1,0 +1,184 @@
+<html>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background-color: #e4ead6;
+
+            position: relative;
+
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: absolute;
+            top: 3rem;
+
+            
+            font-size: 2rem;
+
+            border: 2px solid black;
+            border-radius: 50px;
+
+            width: 40%;
+
+            padding-top: 0.5%;
+
+            -webkit-box-shadow: 6px 6px 7px -1px rgba(0,0,0,0.75);
+            -moz-box-shadow: 6px 6px 7px -1px rgba(0,0,0,0.75);
+            box-shadow: 6px 6px 7px -1px rgba(0,0,0,0.75);
+        }
+
+
+        .question {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+
+            position: absolute;
+            bottom : 4rem;
+
+            width: 40%;
+            height: 13%;
+            
+        }
+
+        .question input {
+            font-family: 'Courier New', Courier, monospace;
+            width: 99%;
+            height: 40%;
+
+            background-color:#e4ead6;
+            border-radius: 50px;
+            border: 2px solid black;
+
+            
+
+            -webkit-box-shadow: 6px 6px 7px -1px rgba(0,0,0,0.75);
+            -moz-box-shadow: 6px 6px 7px -1px rgba(0,0,0,0.75);
+            box-shadow: 6px 6px 7px -1px rgba(0,0,0,0.75);
+
+            font-size: 1rem;
+
+            padding-left: 1%;
+        }
+
+        .question button {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.5rem;
+
+            height: 60%;
+            width: 35%;
+
+            background-color:#e4ead6;
+            border-radius: 50px;
+            border: 2px solid black;
+            
+
+            margin-top: 3%;
+
+            -webkit-box-shadow: 6px 6px 7px -1px rgba(0,0,0,0.75);
+            -moz-box-shadow: 6px 6px 7px -1px rgba(0,0,0,0.75);
+            box-shadow: 6px 6px 7px -1px rgba(0,0,0,0.75);
+        }
+
+        .question button:hover {
+            background-color: #d1d7c9;  
+        }
+
+        .question button:active {
+            background-color: #c7ccb9;
+            box-shadow: none;
+        }
+         
+        
+        .ball{
+
+
+            width: auto;
+            height: auto;
+
+            position: relative;
+        }
+
+        .ball .answer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            width: 44%;
+            height: 44%;
+
+            border-radius: 50%;
+            
+
+            position: absolute;
+            top: 25%;
+            left: 28%;
+
+            background-color: #e4ead6;
+
+        }
+
+        .ball .answer h2{
+            font-size: 2rem;
+            text-align: center;
+        }
+
+    </style>
+    <head>
+        <title>MAGIC 8-BALL</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <body>
+
+        <div class="title">
+            <h1>MAGIC <b>8</b>-BALL</h1>
+        </div>
+
+        <div class="ball">
+            <img src="img/ball.png">
+            <div class="answer">
+                <h2>Ask Later</h2>
+            </div>
+        </div>
+
+        <div class="question">
+            <input type="text" id="question" placeholder=" Ask the question...">
+            <button type="submit" id="submit">Ask the ball</button>
+        </div>
+    </body>
+
+
+    <script>
+        let answer = document.querySelector('.answer');
+        answer.style.display = 'none';
+
+        document.getElementById('submit').addEventListener('click', function(){
+            let question = document.getElementById('question').value;
+            let answers = ['Yes', 'No', 'Ask Later', 'Maybe', 'Definitely', 'Never', 'Sure', 'Not Sure', 'Of Course', 'Of Course'];
+            let random = Math.floor(Math.random() * answers.length);
+            document.querySelector('.answer h2').textContent = answers[random];
+            answer.style.display = 'flex';
+        });
+
+    </script>
+</html>
